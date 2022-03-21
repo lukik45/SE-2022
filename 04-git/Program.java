@@ -1,3 +1,4 @@
+// the sample java file to familiarise with git
 class Main {
 
   public static void main(String[] args) {
@@ -12,5 +13,6 @@ class Main {
     // add two numbers
     int sum = first + second;
     System.out.println("The sum is: " + sum);
+    System.out.println("Third addition");
   }
 }
