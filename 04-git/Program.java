@@ -5,8 +5,8 @@ class Main {
     
     System.out.println("Enter two numbers");
     int first = 10;
-    int second = 20;
-    int third = 30;
+    int second = 240;
+    int third = 3023;
     System.out.println("First addition");
     
     System.out.println(first  + " and " + second);
