@@ -16,10 +16,10 @@ Specification of functional requirements as part of computerisation of the produ
 
 **Main scenario:**
 1. [Seller](#ac1) offers the product at an auction. ([UC1](#uc1))
-2. [Buyer](#ac2) offers a bid for the product that is higher than the currently highest bid. ([BR1](#br1))
+2. [Buyer](#ac2) offers a bid for the product that is higher than the currently highest bid. ([BR1](#br1)) ([UC2](#uc2))
 3. [Buyer](#ac2) wins the auction ([BR2](#br2))
-4. [Buyer](#ac2) transfers the amount due to the Seller.
-5. [Seller](#ac1) transfers the product to the Buyer.
+4. [Buyer](#ac2) transfers the amount due to the Seller. ([UC4](#uc4))
+5. [Seller](#ac1) transfers the product to the Buyer. ([UC5](#uc5))
 
 **Alternative scenarios:** 
 
@@ -50,10 +50,12 @@ A person intending to purchase a product at an auction..
 
 [Seller](#ac1):
 * [UC1](#uc1): Offering a product at an auction
-* ...
+* [UC3](#uc3): Transfering the product to the buyer
 
 [Buyer](#ac2):
-* ...
+* [UC2](#uc2): offering the bid that is higher than the currently highest bid
+* winning the action
+* [UC4](#uc4): transfering the amount due to the seller
 
 ---
 <a id="uc1"></a>
@@ -77,19 +79,53 @@ A person intending to purchase a product at an auction..
 ---
 
 <a id="uc2"></a>
-### UC2: ...
+### UC2: Offering the bid that is higher than the currently highest bid
 
-**Actors:** [Seller](#ac1), [Buyer](#ac2), ...
+**Actors:** [Buyer](#ac2)
 
 **Main scenario:**
-1. ...
+1. [Buyer](#ac2) reports to the system the willingness to make the bid.
+2. System shows the buyer minimal bid that is valid ([BR1](#br1-bidding-at-auction)).
+3. Buyer provides the amount of the bid.
+4. System verifies if the bid is above the threshold ([BR1](#br1-bidding-at-auction)).
+5. System informs that the buyer has succesfully outbided the offer.
+6. System updates the current bid.
 
 **Alternative scenarios:** 
 
-1.A. ...
-* 4.A.1. ...
+5.A. Buyer has provided too low value.
+* 5.A.1. System notifies the buyer that his offer is to low.
+* 5.A.2. Continue at step 1.
+
+5.B. The auction time has expired during the operation.
+* 5.B.1. System notifies the [Buyer](#ac2) that the auction has expired.
+* 5.B.2. End of a use case.
 
 ---
+
+<a id='uc3'></a>
+### UC3: 
+** 
+
+
+---
+
+<a id='uc4'></a>
+### UC4: Transfering the amount due to the Seller.
+
+**Actors** [Buyer](#ac2-buyer)
+
+**Main scenario:**
+1. System provides the payment details to the Buyer.
+2. [Buyer](#ac2-buyer) transfers the money to the system's account.
+3. System validates the payment.
+4. System informs the buyer that the 
+
+
+
+---
+
+
 
 ## Business objects (also known as domain or IT objects)
 
