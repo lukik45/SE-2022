@@ -19,7 +19,7 @@ Specification of functional requirements as part of computerisation of the produ
 2. [Buyer](#ac2) offers a bid for the product that is higher than the currently highest bid. ([BR1](#br1)) ([UC2](#uc2))
 3. [Buyer](#ac2) wins the auction ([BR2](#br2))
 4. [Buyer](#ac2) transfers the amount due to the Seller. ([UC4](#uc4))
-5. [Seller](#ac1) transfers the product to the Buyer. ([UC5](#uc5))
+5. [Seller](#ac1) transfers the product to the Buyer. ([UC3](#uc3))
 
 **Alternative scenarios:** 
 
@@ -54,7 +54,6 @@ A person intending to purchase a product at an auction..
 
 [Buyer](#ac2):
 * [UC2](#uc2): offering the bid that is higher than the currently highest bid
-* winning the action
 * [UC4](#uc4): transfering the amount due to the seller
 
 ---
@@ -94,7 +93,7 @@ A person intending to purchase a product at an auction..
 **Alternative scenarios:** 
 
 5.A. Buyer has provided too low value.
-* 5.A.1. System notifies the buyer that his offer is to low.
+* 5.A.1. System notifies the buyer that their offer is to low.
 * 5.A.2. Continue at step 1.
 
 5.B. The auction time has expired during the operation.
@@ -105,7 +104,18 @@ A person intending to purchase a product at an auction..
 
 <a id='uc3'></a>
 ### UC3: 
-** 
+**Transfering the product to the buyer** 
+
+**Actors** [Seller](#ac1-seller)
+
+**Main scenario:**
+
+1. System informs the seller that the auction was successful.
+1. [Seller](#ac1) determines the convineint time to courier the product.
+1. System sends the courier to pick up the product from the [Seller](#ac1-seller).
+1. [Seller](#ac1-seller) gives the product away to the courier. 
+1. System delivers the product to the [Buyer](#ac2-buyer) with the help of curier company.
+
 
 
 ---
@@ -116,10 +126,16 @@ A person intending to purchase a product at an auction..
 **Actors** [Buyer](#ac2-buyer)
 
 **Main scenario:**
-1. System provides the payment details to the Buyer.
-2. [Buyer](#ac2-buyer) transfers the money to the system's account.
+1. System provides the payment details (payment platform) to the Buyer.
+2. [Buyer](#ac2-buyer) pays the amount due ([BR3](#br3)).
 3. System validates the payment.
-4. System informs the buyer that the 
+4. System informs the buyer that the payment has been registered.
+
+**Alternative scenarios**
+
+3.A. The payment has been denied.
+* 3.A.1 System shows the message that payment was not successful.
+* 3.A.2 Continue at step 1.
 
 
 
@@ -149,13 +165,21 @@ Bidding at auction requires submitting an amount higher than current by a minimu
 
 Auction is won by [Buyer](#ac2) who submitted the highest bid before the end of the auction (time expires).
 
+<a id="br3"></a>
+### BR3: Transfering the amount due
+
+The amount due is transfered by [Buyer](#ac2-buyer) using external payment system.
+
+
 
 ## CRUDL Matrix
 
 
-| Use case                                  | Auction | Product | ... |
-| ----------------------------------------- | ------- | ------- | --- |
-| UC1: Offering a product at an auction     |    C    |    C    | ... |
-| ???                                       |   ...   |   ...   | ... |
+| Use case                                  | Auction | Product |
+| ----------------------------------------- | ------- | ------- |
+| UC1: Offering a product at an auction     |    C    |    C    |
+| UC2: Offering the bid                                       |  R, U   |      |
+| UC3: Transfering the product to the buyer    |    | U   |
+| UC4: Transfering the amount due to the Seller.    |    |    |
 
 
