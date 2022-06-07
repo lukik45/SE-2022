@@ -1,0 +1,21 @@
+Task 1
+	before:
+          Average response time = 6997 (ms)
+          average throughput = 88.4/sec
+          
+	after:
+          Average response time = 97 (ms)
+          average throughput = 1.7/sec
+	
+	change:
+          I just loaded average once and then used the variable
+          instead of calling the function in each iteration.
+
+
+Task 2:
+  a)
+	In my case, the system does not have a reserve.
+	Avg througput = 2.0/sec 
+	2 * 3600 = 7200 cards/hour
+  b)
+	NUMBER_OF_PRINTERS = 40  -> throughput = 5.6/sec
